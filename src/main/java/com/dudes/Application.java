@@ -1,4 +1,4 @@
-package com.dudes.main;
+package com.dudes;
 
 /**
  * Created by vgrinyov on 23.05.16.
