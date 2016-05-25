@@ -4,12 +4,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.io.Serializable;
 
 /**
  * Created by vgrinyov on 23.05.16.
  */
 @Entity
-public class Photo {
+public class Photo implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
