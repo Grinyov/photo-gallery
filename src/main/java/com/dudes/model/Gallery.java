@@ -2,10 +2,7 @@ package com.dudes.model;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by s.piskunov on 25.05.2016.
@@ -15,7 +12,7 @@ import javax.persistence.Table;
 public class Gallery {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
 
     @Autowired
