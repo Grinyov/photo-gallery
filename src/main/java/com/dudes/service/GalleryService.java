@@ -12,17 +12,17 @@ import org.springframework.util.StringUtils;
  */
 @Service
 @Transactional
-public class GalleryService implements GalleryRepository {
+public class GalleryService implements IGalleryRepository{
 
-   /* @Autowired
+    @Autowired
     private GalleryRepository repository;
 
-    @Override
+
     public Gallery createNewGallery(Gallery gallery) {
         return repository.save(gallery);
     }
 
-    @Override
+
     public Gallery updateGallery(Gallery origin, Gallery update) {
         if (origin == null) {
             throw new RuntimeException();
@@ -39,13 +39,12 @@ public class GalleryService implements GalleryRepository {
         return repository.save(origin);
     }
 
-    @Override
     public void deleteGallery(Gallery gallery) {
         if (gallery == null) {
             throw new RuntimeException();
         }
 
         repository.delete(gallery);
-    }*/
+    }
 
 }
