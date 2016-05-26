@@ -42,6 +42,14 @@ public class PhotoFileService {
         }
     }
 
+    private String createSavePath() {
+        String savePath = dateFormat.format(Calendar.getInstance().getTime()) + File.separator;
 
+        File saveDir = new File(path + savePath);
+        if (!saveDir.exists())
+            saveDir.mkdir();
+
+        return savePath;
+    }
 
 }
