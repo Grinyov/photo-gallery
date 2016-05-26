@@ -16,9 +16,6 @@ public class Photo implements Serializable {
     @Lob
     private String image;
 
-    public Photo() {
-    }
-
     public Photo(long id, String image) {
         this.id = id;
     }
@@ -37,5 +34,32 @@ public class Photo implements Serializable {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Photo photo = (Photo) o;
+
+        if (id != photo.id) return false;
+        return image != null ? image.equals(photo.image) : photo.image == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (int) (id ^ (id >>> 32));
+        result = 31 * result + (image != null ? image.hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Photo{" +
+                "id=" + id +
+                ", image='" + image + '\'' +
+                '}';
     }
 }

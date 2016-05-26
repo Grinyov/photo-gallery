@@ -6,6 +6,7 @@ import javax.persistence.*;
 
 /**
  * Created by s.piskunov on 25.05.2016.
+ * Completed by vgrinyov on 26.05.2016.
  */
 @Entity
 @Table(name = "gallery")
@@ -15,8 +16,10 @@ public class Gallery {
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
 
+    String title;
+
     @Autowired
-    Photo photo;
+    String content;
 
     public Long getId() {
         return id;
@@ -26,30 +29,40 @@ public class Gallery {
         this.id = id;
     }
 
-    public Photo getPhoto() {
-        return photo;
+    public String getTitle() {
+        return title;
     }
 
-    public void setPhoto(Photo photo) {
-        this.photo = photo;
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Gallery)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
 
         Gallery gallery = (Gallery) o;
 
-        if (getId() != null ? !getId().equals(gallery.getId()) : gallery.getId() != null) return false;
-        return getPhoto() != null ? getPhoto().equals(gallery.getPhoto()) : gallery.getPhoto() == null;
+        if (!id.equals(gallery.id)) return false;
+        if (title != null ? !title.equals(gallery.title) : gallery.title != null) return false;
+        return content != null ? content.equals(gallery.content) : gallery.content == null;
 
     }
 
     @Override
     public int hashCode() {
-        int result = getId() != null ? getId().hashCode() : 0;
-        result = 31 * result + (getPhoto() != null ? getPhoto().hashCode() : 0);
+        int result = id.hashCode();
+        result = 31 * result + (title != null ? title.hashCode() : 0);
+        result = 31 * result + (content != null ? content.hashCode() : 0);
         return result;
     }
 
@@ -57,7 +70,8 @@ public class Gallery {
     public String toString() {
         return "Gallery{" +
                 "id=" + id +
-                ", photo=" + photo +
+                ", title='" + title + '\'' +
+                ", content='" + content + '\'' +
                 '}';
     }
 }

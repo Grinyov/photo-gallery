@@ -12,9 +12,9 @@ import org.springframework.util.StringUtils;
  */
 @Service
 @Transactional
-public class GalleryService implements IGalleryService {
+public class GalleryService implements GalleryRepository {
 
-    @Autowired
+   /* @Autowired
     private GalleryRepository repository;
 
     @Override
@@ -24,15 +24,15 @@ public class GalleryService implements IGalleryService {
 
     @Override
     public Gallery updateGallery(Gallery origin, Gallery update) {
-        if(origin == null) {
+        if (origin == null) {
             throw new RuntimeException();
         }
 
-        if(StringUtils.hasText(update.getTitle())) {
+        if (StringUtils.hasText(update.getTitle())) {
             origin.setTitle(update.getTitle());
         }
 
-        if(StringUtils.hasText(update.getContent())) {
+        if (StringUtils.hasText(update.getContent())) {
             origin.setContent(update.getContent());
         }
 
@@ -41,25 +41,11 @@ public class GalleryService implements IGalleryService {
 
     @Override
     public void deleteGallery(Gallery gallery) {
-        if(gallery == null) {
+        if (gallery == null) {
             throw new RuntimeException();
         }
 
         repository.delete(gallery);
-    }
+    }*/
 
-    /*
-
-    @Override
-    public Album updateAlbum(Album origin, Album update) {
-
-
-    }
-
-    @Override
-    public void deleteAlbum(Album album) {
-
-
-    }
-     */
 }
