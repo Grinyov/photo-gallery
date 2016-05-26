@@ -8,7 +8,7 @@ import javax.persistence.Id;
 /**
  * @author Vitaliy Grinyov
  * @since 2016
- *
+ * <p/>
  * Entity for assigning image file
  */
 @Entity
