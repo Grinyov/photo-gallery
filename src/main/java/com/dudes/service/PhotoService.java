@@ -1,10 +1,10 @@
 package com.dudes.service;
 
-import com.dudes.dao.PhotoRepository;
-import com.dudes.model.Photo;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+        import com.dudes.dao.PhotoRepository;
+        import com.dudes.model.Photo;
+        import org.springframework.beans.factory.annotation.Autowired;
+        import org.springframework.stereotype.Service;
+        import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author Vitaliy Grinyov

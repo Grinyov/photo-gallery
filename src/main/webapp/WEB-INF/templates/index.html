@@ -5,24 +5,12 @@
     <title>Gallery Service :: Upload your fav pics</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, minimum-scale=1.0"/>
-    <link rel="stylesheet" href="/main.css"/>
+    <link rel="stylesheet" href="main.css"/>
 </head>
 <body>
 <header class="page wrapper">
     <h1>Gallery Service</h1>
 </header>
-
-<section class="wrapper box box--tiny">
-
-    Hello, <span th:text="${#authentication.name}">user</span>.
-    <form th:action="@{/logout}" method="post">
-        <input type="submit" value="Log Out"/>
-    </form>
-
-</section>
-
-<div id="spinner" class="loader loader--responsive" style="">Loading...</div>
-
 
 <section class="wrapper box box--tiny">
     <h3>Snap a pic</h3>
@@ -32,8 +20,8 @@
 <section class="wrapper box box--tiny">
     <h3>Add a gallery</h3>
 
-    <form th:action="${newGallery.href}" th:object="${gallery}" method="post">
-        <input type="text" th:field="*{description}"/>
+    <form th:action="${}" th:object="${gallery}" method="post">
+        <input type="text" th:field="*{title}"/>
         <input type="submit" class="btn btn--responsive"/>
     </form>
 </section>
