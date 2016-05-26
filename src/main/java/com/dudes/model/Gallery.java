@@ -7,6 +7,8 @@ import javax.persistence.*;
 /**
  * Created by s.piskunov on 25.05.2016.
  * Completed by vgrinyov on 26.05.2016.
+ *
+ * Entity for album in the gallery
  */
 @Entity
 @Table(name = "gallery")
