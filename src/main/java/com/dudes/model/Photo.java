@@ -6,7 +6,7 @@ import java.io.Serializable;
 /**
  * Created by vgrinyov on 23.05.16.
  * <p/>
- * Entity for unit in the album
+ * Entity for image in the album
  */
 @Entity
 public class Photo implements Serializable {
@@ -16,10 +16,14 @@ public class Photo implements Serializable {
     private long id;
 
     @Lob
-    private String image;
+    private String title;
 
-    public Photo(long id, String image) {
-        this.id = id;
+    @OneToOne(cascade = CascadeType.ALL)
+    private ImageFile image;
+
+    public Photo(String title, ImageFile image) {
+        setTitle(title);
+        setImage(image);
     }
 
     public long getId() {
@@ -30,11 +34,19 @@ public class Photo implements Serializable {
         this.id = id;
     }
 
-    public String getImage() {
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public ImageFile getImage() {
         return image;
     }
 
-    public void setImage(String image) {
+    public void setImage(ImageFile image) {
         this.image = image;
     }
 
@@ -46,14 +58,16 @@ public class Photo implements Serializable {
         Photo photo = (Photo) o;
 
         if (id != photo.id) return false;
-        return image != null ? image.equals(photo.image) : photo.image == null;
+        if (title != null ? !title.equals(photo.title) : photo.title != null) return false;
+        return image.equals(photo.image);
 
     }
 
     @Override
     public int hashCode() {
         int result = (int) (id ^ (id >>> 32));
-        result = 31 * result + (image != null ? image.hashCode() : 0);
+        result = 31 * result + (title != null ? title.hashCode() : 0);
+        result = 31 * result + image.hashCode();
         return result;
     }
 
@@ -61,7 +75,8 @@ public class Photo implements Serializable {
     public String toString() {
         return "Photo{" +
                 "id=" + id +
-                ", image='" + image + '\'' +
+                ", title='" + title + '\'' +
+                ", image=" + image +
                 '}';
     }
 }
