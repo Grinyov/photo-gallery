@@ -12,8 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class GalleryController {
     @RequestMapping(value="/photo", method= RequestMethod.GET)
-    public String greetingForm(Model model) {
+    public String galleryForm(Model model) {
        // model.addAttribute("gallery", new Gallery());
+          model.addAttribute("index");
         return "index";
     }
 
