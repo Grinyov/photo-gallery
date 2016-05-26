@@ -1,9 +1,14 @@
 package com.dudes.service;
 
 import com.dudes.exception.FileUploadException;
+import com.dudes.model.ImageFile;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.util.FileCopyUtils;
 
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.UUID;
@@ -22,7 +27,22 @@ public class PhotoFileService {
     private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
 
+    public ImageFile saveFileToStorage(String fileName, String contentType, InputStream inputStream) throws IOException {
+        File saveFile = createFile();
 
+        ImageFile file = new ImageFile();
+
+        file.setName(fileName);
+        file.setType(contentType);
+
+        FileCopyUtils.copy(inputStream, new FileOutputStream(saveFile));
+
+        file.setPath(saveFile.getPath());
+        file.setSize(saveFile.length());
+        file.setFile(saveFile.getName());
+
+        return file;
+    }
 
 
     private File createFile() {

@@ -8,11 +8,11 @@ public class FileUploadException extends RuntimeException {
 
     private static final long serialVersionUID = -7305496242383581711L;
 
-    public AttachedFileUploadException(String msg) {
+    public FileUploadException(String msg) {
         super(msg);
     }
 
-    public AttachedFileUploadException(String msg, Throwable throwable) {
+    public FileUploadException(String msg, Throwable throwable) {
         super(msg, throwable);
     }
 }
