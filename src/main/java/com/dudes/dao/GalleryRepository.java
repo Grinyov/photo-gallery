@@ -7,6 +7,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 /**
  * Created by s.piskunov on 25.05.2016.
  */
-public interface GalleryRepository extends JpaRepository<Gallery,Long> {
+public interface GalleryRepository extends JpaRepository<Gallery, Long> {
 
 }

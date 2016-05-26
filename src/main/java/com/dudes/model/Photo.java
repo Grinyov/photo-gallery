@@ -5,7 +5,7 @@ import java.io.Serializable;
 
 /**
  * Created by vgrinyov on 23.05.16.
- *
+ * <p/>
  * Entity for unit in the album
  */
 @Entity

@@ -12,7 +12,7 @@ import org.springframework.util.StringUtils;
  */
 @Service
 @Transactional
-public class GalleryService implements IGalleryRepository{
+public class GalleryService implements IGalleryRepository {
 
     @Autowired
     private GalleryRepository repository;
