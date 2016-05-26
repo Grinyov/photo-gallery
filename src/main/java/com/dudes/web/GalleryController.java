@@ -1,5 +1,6 @@
 package com.dudes.web;
 
+import com.dudes.model.Gallery;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,14 +14,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class GalleryController {
     @RequestMapping(value="/photo", method= RequestMethod.GET)
     public String galleryForm(Model model) {
-       // model.addAttribute("gallery", new Gallery());
-          model.addAttribute("index");
+        model.addAttribute("gallery", new Gallery());
         return "index";
     }
 
-   /* @RequestMapping(value="/"photo, method=RequestMethod.POST)
+    @RequestMapping(value="/photo", method=RequestMethod.POST)
     public String greetingSubmit(@ModelAttribute Gallery gallery, Model model) {
         model.addAttribute("Gallery", gallery);
         return "result";
-    }*/
+    }
 }
